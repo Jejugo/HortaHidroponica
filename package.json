@@ -1,0 +1,26 @@
+{
+  "name": "hortahidroponica",
+  "version": "1.0.0",
+  "description": "Programa utilizado para o TCC da faculdade de tecnologia de são paulo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jejugo/HortaHidroponica.git"
+  },
+  "author": "Jeff, Mariana, Lucas, Camila e Felipe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jejugo/HortaHidroponica/issues"
+  },
+  "homepage": "https://github.com/Jejugo/HortaHidroponica#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.4",
+    "nodemon": "^1.18.2"
+  }
+}
