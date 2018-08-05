@@ -1,9 +1,11 @@
 $(document).ready(function(){
 	$(".form").hide();
-
+	
 	$(".buttonLeft").click(function(){
-		$(".form").show();
+		$(".form").toggle();
 	});
 
-
+	$(".buttonRight").click(function(){
+		location.href="http://localhost:3000/register";
+	});
 });

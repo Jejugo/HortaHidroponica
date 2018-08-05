@@ -1,0 +1,40 @@
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
+
+body{
+  width: auto;
+  height: auto;
+  font-family: 'Patrick Hand SC', cursive;
+}
+
+.signup-container{
+  margin: 5% auto;
+}
+
+h2.titulo-cadastro{
+  font-size: 50px;
+}
+
+label, .btn{
+  font-size: 30px;
+}
+
+.form-control{
+  width: 90% !important;
+}
+
+.cadastro{
+  margin-top: 5%;
+}
+
+.btn{
+  margin-top: 7%;
+  position: relative;
+  top: 0%;
+  left: 35%;
+  width: 30%;
+}
+
+input[type="text"], input[type="email"], input[type="password"]{
+  font-size: 30px;
+  padding: 5%;
+}

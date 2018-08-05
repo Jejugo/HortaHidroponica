@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/Jejugo/HortaHidroponica#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
-    "mongoose": "^5.2.4",
-    "nodemon": "^1.18.2"
+    "express-validator": "^5.3.0",
+    "mongoose": "^5.2.6",
+    "nodemon": "^1.18.3"
   }
 }
