@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const Usuario = require('../models/usuario');
+const Horta = require('../models/horta');
 var express = require('express');
 
 var urlencodedParser = bodyParser.urlencoded({extended: false});
@@ -8,6 +9,8 @@ var success = {msg: ''};
 
 module.exports = function(app){
 
+
+	//GET REQUESTS
 	app.get('/home', function(req, res){
 		res.render('home', {data: ''});
 	});
@@ -16,6 +19,12 @@ module.exports = function(app){
 		res.render('register', {error: errorMsg, success: success});
 	});
 
+	app.get('/login', function(req, res){
+		res.render('login', {data: ''});
+	});
+
+
+	//POST REQUESTS
 	app.post('/register', urlencodedParser, function(req, res){
 		Usuario.find({email: req.body["email"]}).then(function(result){
 			if (result.length == 0){
@@ -31,10 +40,10 @@ module.exports = function(app){
 					if (err) throw err;
 					console.log(err);
 				});
-				console.log("registrado!");
+
 				success.msg = 'Successfully Registered!!';
 				console.log(newUser);
-				//res.render('login', {user: newUser});
+				res.render('login', {user: newUser, msg: ''});
 			}
 			else{
 				errorMsg.msg = "Esse e-mail já foi cadastrado!";
@@ -44,8 +53,5 @@ module.exports = function(app){
 		});
 	});
 
-	app.get('/login', function(req, res){
-		res.render('login', {data: ''});
-	});
 
 };

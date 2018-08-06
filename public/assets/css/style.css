@@ -125,3 +125,12 @@ div .navbar-brand{
   font-size: 30px;
 }
 
+.hortaFrame{
+  margin-top: 10%;
+}
+
+.hortaDisplay{
+  border: 1px black solid;
+  margin-bottom: 5%;
+  padding: 70px;
+}
