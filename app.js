@@ -13,24 +13,6 @@ app.set('view engine', 'ejs');
 //da ao node o poder de ver os arquivos static dentro da pasta public
 app.use('/', express.static('public'));
 
-//NAO 100% necessario. Pode ser feito por jquery no front end
-app.use(expressValidator({
-	errorFormatter: function(param, msg, value){
-		var namespace = param.split('.'),
-		root = namespace.shift(),
-		formParam = root;
-
-		while(namespace.length){
-			formParam += '[' + namespace.shift() + ']';
-		}
-		return{
-			param: formParam,
-			msg: msg,
-			value: value
-		};
-	}
-}));
-
 //fire controller
 controller(app);
 

@@ -23,8 +23,12 @@ module.exports = function(app){
 		res.render('login', {data: ''});
 	});
 
-
 	//POST REQUESTS
+
+	app.post('/login', function(req, res){
+		console.log(req.body["email"]);
+	});
+
 	app.post('/register', urlencodedParser, function(req, res){
 		Usuario.find({email: req.body["email"]}).then(function(result){
 			if (result.length == 0){
