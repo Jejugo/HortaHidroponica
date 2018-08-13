@@ -13,7 +13,7 @@ const hortaSchema = new Schema({
 
 const usuarioSchema = new Schema({
 	usuario: String,
-	pass: String,
+	senha: String,
 	email: {type: String, lowercase: true},
 	estado: String,
 	hortas: [hortaSchema]
@@ -26,8 +26,8 @@ module.exports = Usuario;
 module.exports.createUser = function(newUser, callback){
 	var bcrypt = require('bcryptjs');
 	bcrypt.genSalt(10, function(err, salt) {
-	    bcrypt.hash(newUser.pass, salt, function(err, hash) {
-	        newUser.pass= hash;
+	    bcrypt.hash(newUser.senha, salt, function(err, hash) {
+	        newUser.senha = hash;
 	        newUser.save(callback);
 	    });
 	});

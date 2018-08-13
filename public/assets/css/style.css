@@ -134,3 +134,14 @@ div .navbar-brand{
   margin-bottom: 5%;
   padding: 70px;
 }
+
+.leftSide p {
+  margin-right: 30%; 
+  color: red; 
+  font-size: 20px;
+}
+
+.btnAdicionarHorta{
+  margin: 0 45%;
+  font-size: 30px;
+}

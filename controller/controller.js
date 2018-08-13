@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const Usuario = require('../models/usuario');
 const Horta = require('../models/horta');
 var express = require('express');
+const bcrypt = require('bcryptjs');
 
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 var errorMsg = [{msg: ''}];
@@ -25,19 +26,29 @@ module.exports = function(app){
 
 	//POST REQUESTS
 
-	app.post('/login', function(req, res){
-		console.log(req.body["email"]);
+	app.post('/login', urlencodedParser, function(req, res){
+		Usuario.find({email: req.body["email"]}).then(function(result){
+			bcrypt.compare(req.body["senha"], result[0]["senha"], function(err, result2) {
+				if (result2 === true){
+					res.render('login', {user: result[0], msg: ''});
+				}
+				else{
+					res.render('home', {data: 'Dados Incorretos.'});
+				}
+			});
+		});
 	});
 
 	app.post('/register', urlencodedParser, function(req, res){
 		Usuario.find({email: req.body["email"]}).then(function(result){
 			if (result.length == 0){
-				console.log(result)
 				var newUser = new Usuario({
 					usuario: req.body["nome"],
-					password: req.body["senha"],
+					senha: req.body["senha"],
 					email: req.body["email"],
-					estado: req.body["estado"]
+					estado: req.body["estado"],
+					hortas: []
+
 				});
 
 				Usuario.createUser(newUser, function(err, user){
@@ -47,7 +58,7 @@ module.exports = function(app){
 
 				success.msg = 'Successfully Registered!!';
 				console.log(newUser);
-				res.render('login', {user: newUser, msg: ''});
+				//res.render('login', {user: newUser, msg: ''});*/
 			}
 			else{
 				errorMsg.msg = "Esse e-mail já foi cadastrado!";
@@ -56,6 +67,4 @@ module.exports = function(app){
 			}
 		});
 	});
-
-
-};
+}
