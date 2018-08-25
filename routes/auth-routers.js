@@ -20,7 +20,7 @@ router.get('/google', passport.authenticate('google', {
 }));
 
 router.get('/google/redirect', passport.authenticate('google'), function(req, res){
-    console.log("callback google");
+    res.send(req.user);
 });
 
 router.post('/register', urlencodedParser, function(req, res){

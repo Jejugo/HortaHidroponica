@@ -17,6 +17,10 @@ const usuarioSchema = new Schema({
 	email: {type: String, lowercase: true},
 	estado: String,
 	hortas: [hortaSchema]
+	/*
+	googleId:
+	facebookId: 
+	*/
 });
 
 const Usuario = mongoose.model('cliente', usuarioSchema);
