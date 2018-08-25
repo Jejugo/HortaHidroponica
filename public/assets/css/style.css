@@ -145,3 +145,9 @@ div .navbar-brand{
   margin: 0 45%;
   font-size: 30px;
 }
+
+#logoutButton{
+  width: auto;
+  font-size: 20px;
+
+}

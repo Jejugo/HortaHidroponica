@@ -6,7 +6,7 @@ $(document).ready(function(){
 	});
 
 	$(".buttonRight").click(function(){
-		location.href="http://localhost:3000/auth/register";
+		location.href="http://localhost:3000/register";
 	});
 
 	/*$("form").submit(function(){

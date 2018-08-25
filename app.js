@@ -1,10 +1,12 @@
 const express = require('express');
-const controller = require('./controller/controller');
+const baseRoutes = require('./routes/base-routers');
+const profileRoutes = require('./routes/profile-routers');
 const connection = require('./controller/connection');
 const authRoutes = require('./routes/auth-routers');
 const cookieSession = require("cookie-session");
 const keys = require('./services/keys');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 
 //chama o arquivo de configuracao do passport
 const passportSetup = require('./services/passport-config');
@@ -12,6 +14,8 @@ const passportSetup = require('./services/passport-config');
 connection();
 
 var app = express();
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 //usando o template ejs para renderizar as views
 app.set('view engine', 'ejs');
@@ -26,14 +30,17 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//set up routes
+//set up base routes
+app.use(baseRoutes);
+
+//set up routes for authorization
 app.use('/auth', authRoutes);
+
+//set up profile routes
+app.use('/profile', profileRoutes);
 
 //da ao node o poder de ver os arquivos static dentro da pasta public
 app.use('/', express.static('public'));
-
-//fire controller
-controller(app);
 
 app.listen(3000, function(){
 	console.log("app is running...");
