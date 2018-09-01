@@ -21,14 +21,15 @@ passport.use(new GoogleStrategy({
     clientID: keys.google.clientId,
     clientSecret: keys.google.clientSecret
     }, function(acessToken, refreshToken, profile, done){
-        Usuario.findOne({senha: profile["id"]}).then(function(result){
+        Usuario.findOne({googleId: profile["id"]}).then(function(result){
             if (!result){
                 var newUser = new Usuario({
-                    usuario: profile["displayName"],
-                    senha: profile["id"],
+                    nome: profile["displayName"],
+                    googleId: profile["id"],
                 });
                 newUser.save().then(function(newUser){
                     console.log("New User created -> " + newUser);
+                    console.log(profile);
                 });
                 done(null, newUser);
             }

@@ -16,12 +16,27 @@ router.get('/register', function(req, res){
     res.render('register', {error: errorMsg, success: success});
 });
 
+router.get('/arduinoapi', function(req, res){
+    res.json({
+        hortas: [{
+            "id": "313123123",
+            "email": "jeffgoes22@gmail.com",
+            "ph": "3",
+            "data": "03-02-14",
+            "turbidez": 123.3,
+            "vazao": 12.4,
+            "umidadeRelAr": 20,
+            "temperatura": 33,
+        }]
+    });
+});
+
 //POST REQUESTS
 router.post('/register', urlencodedParser, function(req, res){
     Usuario.find({email: req.body["email"]}).then(function(result){
         if (result.length == 0){
             var newUser = new Usuario({
-                usuario: req.body["nome"],
+                nome: req.body["nome"],
                 senha: req.body["senha"],
                 email: req.body["email"],
                 estado: req.body["estado"],
@@ -35,12 +50,10 @@ router.post('/register', urlencodedParser, function(req, res){
             });
 
             success.msg = 'Successfully Registered!!';
-            console.log(newUser);
-            //res.render('login', {user: newUser, msg: ''});*/
+            res.redirect('home');
         }
         else{
             errorMsg.msg = "Esse e-mail já foi cadastrado!";
-            console.log(errorMsg);
             res.render('register', {error: errorMsg});
         }
     });

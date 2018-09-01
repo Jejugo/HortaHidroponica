@@ -18,7 +18,7 @@
 				<li><a href="#">Procure</a></li>
    			 </ul>
    			<ul class="nav navbar-nav loginName navbar-right">
-   				<li><a>Olá <%= user["usuario"] %>!</a></li>
+   				<li><a>Olá <%= user["nome"] %>!</a></li>
 				<li><button id="logoutButton"><a href="/auth/logout">Logout</a></button></li>
    			</ul>
   		</div>
@@ -32,9 +32,9 @@
 		</form>-->
 
 		<div class="container-fluid hortaFrame">
-		<% if(user["hortas"].length == 0){ %>
-			<h2 class="text-center" style="margin-bottom: 5%">Você não possui nenhuma horta </h2>
 			<button class="btn btn-primary btnAdicionarHorta"> Adicionar </button>
+		<% if(user["hortas"].length == 0){ %>
+			<h2 class="text-center" style="margin-top: 15%">Você não possui nenhuma horta </h2>
 		<% } %>
 		<% if(user["hortas"].length !== 0){ %>
 			<h2 class="text-center" style="margin-bottom: 5%">Escolha a horta que deseja analisar: </h2>

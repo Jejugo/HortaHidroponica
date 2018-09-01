@@ -9,6 +9,12 @@ $(document).ready(function(){
 		location.href="http://localhost:3000/register";
 	});
 
+	$(".btnAdicionarHorta").click(function(){
+		$(".btnAdicionaHorta").fadeOut("slow", function(){
+			
+		});
+	});
+
 	/*$("form").submit(function(){
 		usuario = {
 		email: $("input[type=email]").val(),

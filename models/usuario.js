@@ -1,26 +1,36 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+const historico = new Schema({
+	id: Number,
+	ph: {type: Number, min: 0, max: 14},
+	data: Date,
+	turbidez: Number,
+	vazao: Schema.Types.Decimal128,
+	umidadeRelAr: Schema.Types.Decimal128,
+	temperatura: Schema.Types.Decimal128,
+});
+
 const hortaSchema = new Schema({
 	id: Number,
 	ph: {type: Number, min: 0, max: 14},
+	data: Date,
 	turbidez: Number,
 	vazao: Schema.Types.Decimal128,
-	humidadeRelativa: Schema.Types.Decimal128,
-	temperatura: Schema.Types.Decimal128
+	umidadeRelAr: Schema.Types.Decimal128,
+	temperatura: Schema.Types.Decimal128,
+	historico: [historico]
 
 });
 
 const usuarioSchema = new Schema({
-	usuario: String,
+	nome: String,
 	senha: String,
 	email: {type: String, lowercase: true},
 	estado: String,
-	hortas: [hortaSchema]
-	/*
-	googleId:
-	facebookId: 
-	*/
+	hortas: [hortaSchema],
+	googleId: String,
+	facebookId: String
 });
 
 const Usuario = mongoose.model('cliente', usuarioSchema);
