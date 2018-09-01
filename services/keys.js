@@ -7,8 +7,5 @@ module.exports = {
     },
     session: {
         cookieKey: "TCC-Fatec-2018-HortaHidroponica-JMLCF//25082018144138"
-    },
-    teste: {
-        teste: teste
     }
 }

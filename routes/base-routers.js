@@ -16,11 +16,45 @@ router.get('/register', function(req, res){
     res.render('register', {error: errorMsg, success: success});
 });
 
+router.get('/formHorta', function(req, res){
+    res.render('formHorta');
+});
+
 router.get('/arduinoapi', function(req, res){
     res.json({
         hortas: [{
             "id": "313123123",
             "email": "jeffgoes22@gmail.com",
+            "ph": "3",
+            "data": "03-02-14",
+            "turbidez": 123.3,
+            "vazao": 12.4,
+            "umidadeRelAr": 20,
+            "temperatura": 33,
+        }, 
+        {
+            "id": "456664564564",
+            "email": "mari@gmail.com",
+            "ph": "3",
+            "data": "03-02-14",
+            "turbidez": 123.3,
+            "vazao": 12.4,
+            "umidadeRelAr": 20,
+            "temperatura": 33,
+        },
+        {
+            "id": "678768768768",
+            "email": "lucas@gmail.com",
+            "ph": "3",
+            "data": "03-02-14",
+            "turbidez": 123.3,
+            "vazao": 12.4,
+            "umidadeRelAr": 20,
+            "temperatura": 33,
+        },
+        {
+            "id": "0022453211434",
+            "email": "camila@gmail.com",
             "ph": "3",
             "data": "03-02-14",
             "turbidez": 123.3,
@@ -58,5 +92,19 @@ router.post('/register', urlencodedParser, function(req, res){
         }
     });
 });
+
+router.post('/formHorta', urlencodedParser, function(req, res){
+    resAPI = req.body;
+    user = req.user;
+    console.log(resAPI);
+    console.log(user);
+    /*if(resAPI["UserId"] == user["id"]){
+        Usuario.find({CPF: user["CPF"]}).then(function(result){
+
+        });
+    }*/
+
+});
+
 
 module.exports = router;

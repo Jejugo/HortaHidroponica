@@ -1,0 +1,52 @@
+<html>
+<head>
+	<!-- CSS AND JQUERY FILES -->
+	<link rel="stylesheet" href="/assets/bootstrap-3.3-1.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/css/style_register.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title> Horta Hidroponica!</title>
+</head>
+<body>
+    <form id="signup">
+        <div class="container-fluid cadastro">
+            <h2>Cadastro Horta</h2>
+            <div class="form-group">
+            <label for="inputEmail">Numero Horta</label>
+            <input type="text" class="form-control" id="inputHortaNumber" placeholder="Digite o numero da sua Horta" name="nomeHorta" required>
+            <h4 id="hortaHelp" class="form-text text-muted">Não vamos compartilhar seu e-mail com ninguém.</h4>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body>
+<script>
+$(document).ready(function(){
+    alert("clicou!");
+    $("form").on('submit', function(e){
+        let resAPI = "";
+
+        e.preventDefault();
+        $.ajax({
+            type: 'GET',
+            processData: false,
+            url: 'http://localhost:3000/arduinoapi',
+            success: function(result){
+                resAPI = result;
+                console.log(resAPI);
+            },
+            complete:function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/formHorta',
+                    data: resAPI,
+                    success: function(data){
+                        console.log(data);
+                    }
+                })
+            }
+        });
+    });
+});
+
+</script>
+</html>

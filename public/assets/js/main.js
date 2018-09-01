@@ -10,9 +10,8 @@ $(document).ready(function(){
 	});
 
 	$(".btnAdicionarHorta").click(function(){
-		$(".btnAdicionaHorta").fadeOut("slow", function(){
-			
-		});
+		window.open("http://localhost:3000/formHorta");
+		return false;
 	});
 
 	/*$("form").submit(function(){
