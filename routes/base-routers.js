@@ -20,10 +20,17 @@ router.get('/formHorta', function(req, res){
     res.render('formHorta');
 });
 
-router.get('/arduinoapi', function(req, res){
-    res.json({
+router.post('/arduinoapi', function(req, res){
+
+    console.log(req);
+
+
+
+
+    /*res.json({
         hortas: [{
             "id": "313123123",
+            "userId": "5b8a1c1c65f28e4dece514a7", 
             "email": "jeffgoes22@gmail.com",
             "ph": "3",
             "data": "03-02-14",
@@ -34,6 +41,7 @@ router.get('/arduinoapi', function(req, res){
         }, 
         {
             "id": "456664564564",
+            "userId": "5b8a1eb5fdef2d4e3525aee8",
             "email": "mari@gmail.com",
             "ph": "3",
             "data": "03-02-14",
@@ -44,6 +52,7 @@ router.get('/arduinoapi', function(req, res){
         },
         {
             "id": "678768768768",
+            "userId": "5b8a11231212312312321ee8",
             "email": "lucas@gmail.com",
             "ph": "3",
             "data": "03-02-14",
@@ -54,6 +63,7 @@ router.get('/arduinoapi', function(req, res){
         },
         {
             "id": "0022453211434",
+            "userId": "432432sdsad23423asdfsdfg",
             "email": "camila@gmail.com",
             "ph": "3",
             "data": "03-02-14",
@@ -62,7 +72,7 @@ router.get('/arduinoapi', function(req, res){
             "umidadeRelAr": 20,
             "temperatura": 33,
         }]
-    });
+    });*/
 });
 
 //POST REQUESTS
@@ -94,15 +104,18 @@ router.post('/register', urlencodedParser, function(req, res){
 });
 
 router.post('/formHorta', urlencodedParser, function(req, res){
-    resAPI = req.body;
+    /*resAPI = req.body;
     user = req.user;
     console.log(resAPI);
-    console.log(user);
-    /*if(resAPI["UserId"] == user["id"]){
-        Usuario.find({CPF: user["CPF"]}).then(function(result){
-
-        });
-    }*/
+    resAPI["userId"].forEach(function(item){
+        console.log(item.id);
+        if(item.userId == user["id"]){
+            Usuario.find({id: user["id"]}).then(function(result){
+            
+            });
+        }
+    });*/
+    
 
 });
 

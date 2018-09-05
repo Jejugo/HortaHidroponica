@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 const historico = new Schema({
 	id: Number,
+	userId: String,
 	ph: {type: Number, min: 0, max: 14},
 	data: Date,
 	turbidez: Number,

@@ -19,34 +19,4 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </body>
-<script>
-$(document).ready(function(){
-    alert("clicou!");
-    $("form").on('submit', function(e){
-        let resAPI = "";
-
-        e.preventDefault();
-        $.ajax({
-            type: 'GET',
-            processData: false,
-            url: 'http://localhost:3000/arduinoapi',
-            success: function(result){
-                resAPI = result;
-                console.log(resAPI);
-            },
-            complete:function(){
-                $.ajax({
-                    type: 'POST',
-                    url: '/formHorta',
-                    data: resAPI,
-                    success: function(data){
-                        console.log(data);
-                    }
-                })
-            }
-        });
-    });
-});
-
-</script>
 </html>
