@@ -43,5 +43,5 @@ app.use('/profile', profileRoutes);
 app.use('/', express.static('public'));
 
 app.listen(3000, function(){
-	console.log("app is running...");
+	console.log("Application is running...");
 });

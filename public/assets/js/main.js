@@ -20,10 +20,10 @@ $(document).ready(function(){
 		}
 	});
 
-	$(".btnAdicionarHorta").click(function(){
+	/*$(".btnAdicionarHorta").click(function(){
 		window.open("http://localhost:3000/formHorta");
 		return false;
-	});
+	});*/
 
 	//Home Page
 	$(".form").hide();
