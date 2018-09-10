@@ -149,5 +149,9 @@ div .navbar-brand{
 #logoutButton{
   width: auto;
   font-size: 20px;
+}
 
+.hortaBox{
+  border: 1px solid #ccc;
+  padding: 5% 5%;
 }
