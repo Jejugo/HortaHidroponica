@@ -14,7 +14,6 @@ const authCheck = (req, res, next) => {
 
 router.get("/", authCheck, function(req, res){
     res.render('profile', {user: req.user, msg: ''});
-
 });
 
 

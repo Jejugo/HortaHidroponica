@@ -36,9 +36,12 @@
 				<button type="submit" class="btn btn-primary btnAdicionarHorta"> Adicionar </button>
 			</form>
 			<% var count = 0 %>
-			<% user["hortas"].every(function(horta){ %>
+			<% user["hortas"].forEach(function(horta){ %>
 			<% if(horta.data != ''){ %>
-			<p><%=horta.id %></p>
+			<a><div class="hortaBox col-lg-4">
+				<h3 class="text-center">Horta</h3>
+				<h4 class="text-center"> <%=horta.id %> </h4>
+			</div></a>
 			<% count = count + 1 %>
 			<% }}) %>
 			<% if(count == 0){ %>

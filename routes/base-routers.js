@@ -65,7 +65,8 @@ router.post('/formHorta', urlencodedParser, function(req, res) {
         });
 
         hortaId = result.hortas[result.hortas.length-1]["id"];
-        console.log("Guarde o numero da sua nova horta! :" + hortaId);
+        console.log("Esse eh o numero da sua horta! " + hortaId);
+
         result.save();
     });
 
